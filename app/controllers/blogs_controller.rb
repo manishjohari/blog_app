@@ -10,6 +10,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog = Blog.includes(:comments).find(params[:id])
+    @comment = Comment.new
   end
 
   # GET /blogs/new
@@ -25,6 +27,7 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @comment = Comment.new
 
     respond_to do |format|
       if @blog.save
