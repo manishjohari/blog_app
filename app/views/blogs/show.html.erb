@@ -15,7 +15,9 @@
 <!-- end of comment form -->
 
 <!-- Start of Comments -->
-<%= render @blog.comments %>
+<div id="comments" data-blog-id="<%= @blog.id %>">
+  <%= render @blog.comments %>
+</div>
 <!-- End of Comments -->
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
