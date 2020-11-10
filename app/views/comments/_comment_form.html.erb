@@ -1,4 +1,4 @@
-<%# unless current_user %>
+<% if current_user.is_a? User %>
   <%= form_for @comment, url: '#' do |f| %>
     <div class="form-group">
       <%= f.label :content %>
@@ -6,4 +6,4 @@
     </div>
     <%= f.submit 'Post Comment', class: 'btn' %>
   <% end %>
-<%# end %>
+<% end %>
